@@ -9,3 +9,4 @@ require_relative '../apps/models/kitten'
 Seeds.create_or_update(KittensStore::Models::Kitten, {name: 'Bengal Cats'}, {price: 300})
 Seeds.create_or_update(KittensStore::Models::Kitten, {name: 'Chinese Li Hua'}, {price: 250})
 Seeds.create_or_update(KittensStore::Models::Kitten, {name: 'Himalayan'}, {price: 150})
+Seeds.create_or_update(KittensStore::Models::Kitten, {name: 'Susanna'}, {price: 650})
