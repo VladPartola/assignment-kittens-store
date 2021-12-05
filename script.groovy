@@ -9,16 +9,6 @@ def buildDocker() {
     }
 }
 
-def runDockercompose() {
-    echo 'Runing the docker-compose file...'
-    sh "./local-script.sh"
-}
-
-def testApp() {
-    echo 'Testing the application...'
-    sh "docker-compose exec -t app bundle exec rspec >> testlog.txt"
-}
-
 def deployApp() {
     echo 'Deploying the application to AWS server...'
     def server = "ec2-user@18.195.44.16"
@@ -29,10 +19,6 @@ def deployApp() {
         sh "ssh -o StrictHostKeyChecking=no ${server} ${shellCmd}"
     }
 
-}
-
-def runApp() {
-    echo 'Runing the application...'
 }
 
 return this
