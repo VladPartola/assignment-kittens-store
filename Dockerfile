@@ -7,4 +7,4 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle check || bundle install
 COPY . ./
 
-#CMD [ "bundle exec rackup --port 1234 --host 0.0.0.0" ]
+ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]

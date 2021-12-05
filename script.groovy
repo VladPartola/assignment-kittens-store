@@ -15,11 +15,11 @@ def deployApp() {
     def shellCmd = "/bin/bash ./server-script.sh"
     sshagent(['ec2-server-key']) {
         sh "ssh -o StrictHostKeyChecking=no ${server}"
-        sh "scp docker-composeAWS.yml ${server}:/home/ec2-user/docker-compose.yml"
-        sh "scp .env ${server}:/home/ec2-user/"
-        sh "scp init.sql ${server}:/home/ec2-user/"
-        sh "scp Gemfile ${server}:/home/ec2-user/"
-        sh "scp server-script.sh ${server}:/home/ec2-user"
+        sh "scp docker-composeAWS.yml ${server}:/home/ec2-user/application/docker-compose.yml"
+        sh "scp .env ${server}:/home/ec2-user/application/"
+        sh "scp init.sql ${server}:/home/ec2-user/application/"
+        sh "scp -rf entrypoints ${server}:/home/ec2-user/application/"
+        sh "scp server-script.sh ${server}:/home/ec2-user/application"
         sh "ssh -o StrictHostKeyChecking=no ${server} ${shellCmd}"
     }
 
