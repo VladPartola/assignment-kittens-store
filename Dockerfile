@@ -7,4 +7,4 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle check || bundle install
 COPY . ./
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
