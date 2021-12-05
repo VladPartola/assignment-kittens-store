@@ -21,11 +21,8 @@ pipeline {
         }
         stage("Run docker-compose and setting database for testing app") {
             steps {
-                dir ('/home/vlad/Main_folder/testapp/assignment-kittens-store/')
-                {
-                    script {
-                        gv.runDockercompose()
-                    }
+               script {
+                   gv.runDockercompose()
                 }
             }
         }
