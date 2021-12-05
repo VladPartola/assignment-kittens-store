@@ -4,10 +4,14 @@ def gv
 
 pipeline {
     agent any
-    tools {
-        maven 'ruby'
-    }
     stages {
+        stage("init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage("Build docker image for app and push to DockerHub") {
             steps {
                 script {
