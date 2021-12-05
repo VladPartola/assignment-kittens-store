@@ -14,12 +14,12 @@ def runDockercompose() {
     sh "pwd"
     sh "docker-compose up -d"
     echo 'Setting up databes...'
-    sh "docker-compose exec app bundle exec rake db:setup db:migrate"
+    sh "docker-compose exec -t app bundle exec rake db:setup db:migrate"
 }
 
 def testApp() {
     echo 'Testing the application...'
-    sh "docker-compose exec app bundle exec rspec >> testlog.txt"
+    sh "docker-compose exec -t app bundle exec rspec >> testlog.txt"
 }
 
 def deployApp() {
