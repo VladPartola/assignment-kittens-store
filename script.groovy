@@ -18,7 +18,7 @@ def deployApp() {
         sh "scp docker-composeAWS.yml ${server}:/home/ec2-user/application/docker-compose.yml"
         sh "scp .env ${server}:/home/ec2-user/application/"
         sh "scp init.sql ${server}:/home/ec2-user/application/"
-        sh "scp -rf entrypoints ${server}:/home/ec2-user/application/"
+        sh "scp -r entrypoints ${server}:/home/ec2-user/application/"
         sh "scp server-script.sh ${server}:/home/ec2-user/application"
         sh "ssh -o StrictHostKeyChecking=no ${server} ${shellCmd}"
     }
