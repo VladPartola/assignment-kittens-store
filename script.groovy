@@ -11,6 +11,7 @@ def buildDocker() {
 
 def runDockercompose() {
     echo 'Runing the docker-compose file...'
+    sh 'pwd'
     sh "docker-compose up -d"
     echo 'Setting up databes...'
     sh "docker-compose exec app bundle exec rake db:setup db:migrate"
