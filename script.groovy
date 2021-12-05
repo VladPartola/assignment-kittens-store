@@ -20,7 +20,7 @@ def deployApp() {
         sh "scp init.sql ${server}:/home/ec2-user/application/"
         sh "scp -r entrypoints ${server}:/home/ec2-user/application/"
         sh "scp server-script.sh ${server}:/home/ec2-user/application"
-        sh "ssh -o StrictHostKeyChecking=no ${server} ${shellCmd}"
+        sh "ssh -o StrictHostKeyChecking=no ${server}:/home/ec2-user/application ${shellCmd}"
     }
 
 }
