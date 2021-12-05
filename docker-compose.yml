@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: bundle exec rackup --port 1234 --host 0.0.0.0
     depends_on:
       - database
     ports:
