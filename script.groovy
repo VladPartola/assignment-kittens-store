@@ -14,6 +14,7 @@ def deployApp() {
     def server = "ec2-user@18.195.44.16"
     def shellCmd = "/bin/bash ./server-script.sh"
     sshagent(['ec2-server-key']) {
+        sh "ssh -o StrictHostKeyChecking=no ${server}"
         sh "scp docker-composeAWS.yaml ${server}:/home/ec2-user"
         sh "scp server-script.sh ${server}:/home/ec2-user"
         sh "ssh -o StrictHostKeyChecking=no ${server} ${shellCmd}"
