@@ -5,7 +5,7 @@ echo "------------Starting pipeline--------------"
 docker-compose up -d
 sleep 20
 echo "----------Setting up database--------------"
-ddocker-compose exec -T app bundle exec rake db:create
+docker-compose exec -T app bundle exec rake db:create
 docker-compose exec -T app bundle exec rake db:migrate
 docker-compose exec -T app bundle exec rake db:seed
 
