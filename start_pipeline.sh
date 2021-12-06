@@ -5,7 +5,9 @@ echo "------------Starting pipeline--------------"
 docker-compose up -d
 sleep 20
 echo "----------Setting up database--------------"
-docker-compose exec app bundle exec rake db:setup db:migrate
+ddocker-compose exec -T app bundle exec rake db:create
+docker-compose exec -T app bundle exec rake db:migrate
+docker-compose exec -T app bundle exec rake db:seed
 
 echo "----------Testing the application----------"
 docker-compose exec -T app bundle exec rspec >> testlog.txt
