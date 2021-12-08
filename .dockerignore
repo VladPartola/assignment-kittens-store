@@ -1,1 +1,7 @@
-.git
+.git/
+docker-compose.yml
+docker-composeAWS.yml
+Jenkinsfile
+script.groovy
+server-script.sh
+start_pipeline.sh
